@@ -5,9 +5,13 @@
 body{
     background-color: #ecececab;
     font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 2rem;
     line-height: 1.5;
     color: #333;
+}
+
+li{
+    list-style: none;
 }
 
 .date-clock{
@@ -24,8 +28,8 @@ body{
     box-shadow: 10px 10px 5px rgb(87, 84, 84);
 }
 
-.date-clock h1{
-    font-size: 2rem;
+.date-clock h2{
+    font-size: 1.75rem;
     font-style: oblique;
     color: #fff;
     margin: -10px auto 20px;
@@ -41,6 +45,24 @@ body{
     position: relative;
     font-size: 1.25rem;
     color: #fff;
+}
+
+#day{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#day li {
+    margin-top: 15px;
+    margin-right: 20px;
+}
+
+#city, #temp, #wind, #humidity, #description{
+    position: relative;
+    font-size: 1.25rem;
+    color: #756c6c;
 }
 
 .analog-clock{
@@ -95,4 +117,42 @@ body{
 #seconds-hand {
     height: 1px;
     background: red;
+}
+
+.stock-datas{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 80%;
+    margin: 50px auto;
+    padding: 50px;
+    background-color: #d3bea6;
+    border-radius: 20px;
+    box-shadow: 10px 10px 5px rgb(87, 84, 84);
+}
+
+.stock-datas h2{
+    font-size: 2.25rem;
+    line-height: 1.5;
+    color: #333;
+    margin: 0px auto 30px;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    color: #333;
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+th{
+    background-color: #ceab83;
+    color: #fff;
+    text-align: center;
+}
+
+tr:nth-child(even){
+    background-color: rgb(228, 215, 199);
 }

@@ -102,9 +102,80 @@ function fetchAnalogClock (){
     document.querySelector('#seconds-hand').style.transform = `rotate(${secondsDegrees}deg)`;
 }
 
+function getWeatherDatas (){
+    const url = 'https://api.hgbrasil.com/weather?format=json-cors&key=4c9f9a6d&city_name=Caçapava,SP';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const temp = data.results.temp;
+            const description = data.results.description;
+            const city = data.results.city;
+            const wind = data.results.wind_speedy;
+            const humidity = data.results.humidity;
+
+            document.querySelector('#city').innerText = city;
+            document.querySelector('#temp').innerText = `${temp}°C,`;
+            document.querySelector('#description').innerText = description;
+            document.querySelector('#wind').innerText = `Vento: ${wind}`;
+            document.querySelector('#humidity').innerText = `Humidade: ${humidity}`;
+        });
+}
+
+function getStockDatas (){
+    const url = 'https://api.hgbrasil.com/finance?format=json-cors&key=4c9f9a6d';
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            const dolar = data.results.currencies.USD.buy;
+            const dolarvariation = data.results.currencies.USD.variation;
+
+            const euro = data.results.currencies.EUR.buy;
+            const eurovariation = data.results.currencies.EUR.variation;
+
+            const peso = data.results.currencies.ARS.buy;
+            const pesovariation = data.results.currencies.ARS.variation;
+
+            const bitcoin = data.results.currencies.BTC.buy;
+            const bitcoinvariation = data.results.currencies.BTC.variation;
+
+            const ibovpsa = data.results.stocks.IBOVESPA.points;
+            const ibovvariation = data.results.stocks.IBOVESPA.variation;
+
+            const ifix = data.results.stocks.IFIX.points;
+            const ifixvariation = data.results.stocks.IFIX.variation;
+            
+
+            document.querySelector('#dolar').innerText = `R$ ${dolar}`;
+            document.querySelector('#dolarvariation').innerText = `${dolarvariation}%`;
+
+            document.querySelector('#euro').innerText = `R$ ${euro}`;
+            document.querySelector('#eurovariation').innerText = `${eurovariation}%`;
+
+            document.querySelector('#peso').innerText = `R$ ${peso}`;
+            document.querySelector('#pesovariation').innerText = `${pesovariation}%`;
+
+            document.querySelector('#bitcoin').innerText = `R$ ${bitcoin}`;
+            document.querySelector('#bitcoinvariation').innerText = `${bitcoinvariation}%`;
+
+            document.querySelector('#ibovpsa').innerText = `${ibovpsa} pontos`;
+            document.querySelector('#ibovvariation').innerText = `${ibovvariation}%`;
+
+            document.querySelector('#ifix').innerText = `${ifix} pontos`;
+            document.querySelector('#ifixvariation').innerText = `${ifixvariation}%`;
+
+        });
+}
+
 setInterval(updateClock, 1000);
 setInterval(fetchAnalogClock, 1000);
+setInterval(getWeatherDatas, 300000); // 5 minutos
+setInterval(getStockDatas, 300000); // 5 minutos
 
 updateClock();
 updateDate();
 fetchAnalogClock();
+
+getWeatherDatas();
+getStockDatas();
