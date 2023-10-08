@@ -8,9 +8,20 @@
 </head>
 <body>
     <section class="date-clock">
-        <h1> Data/Horário Atual: </h1>
+        <h1> Bem Vindo </h1>
+        <h2> Hoje é dia: </h2>
         <div id="date"></div>
         <div id="clock"></div>
+
+        <ul id="day">
+            <li id="city"></li>
+            <li id="temp"></li>
+            <li id="description"></li>
+        </ul>
+        <!-- <ul style="margin-top: 0px;"> -->
+        <p id="wind" style="margin: auto;"></p>
+        <p id="humidity" style="margin: auto"></p>
+        <!-- </ul> -->
         
         <div class="analog-clock">
             <div id="point"></div>
@@ -18,6 +29,52 @@
             <div id="minutes-hand"></div>
             <div id="seconds-hand"></div>
         </div>
+    </section>
+
+    <section class="stock-datas">
+        <h2>Cotação Diária:</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Ativo</th>
+                    <th>Valor</th>
+                    <th>Variação</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>IBOVESPA</td>
+                    <td id="ibovpsa"></td>
+                    <td id="ibovvariation"></td>
+                </tr>
+                <tr>
+                    <td>IFIX</td>
+                    <td id="ifix"></td>
+                    <td id="ifixvariation"></td>
+                </tr>
+                <tr>
+                    <td>Dólar</td>
+                    <td id="dolar"></td>
+                    <td id="dolarvariation"></td>
+                </tr>
+                <tr>
+                    <td>Euro</td>
+                    <td id="euro"></td>
+                    <td id="eurovariation"></td>
+                </tr>
+                <tr>
+                    <td>Peso</td>
+                    <td id="peso"></td>
+                    <td id="pesovariation"></td>
+                </tr>
+                <tr>
+                    <td>BITCOIN</td>
+                    <td id="bitcoin"></td>
+                    <td id="bitcoinvariation"></td>
+                </tr>
+            </tbody>
+        </table>
     </section>
     
  
